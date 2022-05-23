@@ -1,0 +1,50 @@
+APPROCCIO 1 (TIPO ANAGRAMMI)
+
+Ad ogni passo L della ricorsione, inserisco un esame in parizale. Devo decidere quale -> li provo tutti
+
+SOLUZIONE PARZIALE: ad ogni livello L, il parziale sarà una lista o insieme di esattamente L esami
+
+GENERAZIONE SOTTOBLEMI: aggiungere un nuovo esame a parziale, tra quelli che non sono ancora stati aggiunti
+
+L = 0 -> N scelte possibili 
+
+	PARZIALE = {e1}
+	
+		L = 1
+			PARZIALE = {e1, e2} //prima prova questa soluzione
+			
+				L = 2
+					PARZIALE = {e1, e2, e2}	
+					
+					[...]
+					
+		L = 1
+			PARZIALE = 	{e1, e3} //poi prova questa combinazione
+			
+				[...]	
+					
+CASI TERMINALI
+
+1) L = N
+
+2) SE PARZIALE.sommaCrediti () == m -> potrebbe essere una soluzione
+
+	return;
+	
+	ELSE SE PARZIALE.sommaCrediti () > m -> non può essere una soluzione 
+		-> esco dalla ricorsione
+		
+		return;
+	
+
+APPROCCIO 2
+Generare i sottoproblemi 1 per volta, scorrendo l'insieme di esami di partenza in ordine, decidendo per ogni esame:
+- se deve essere inserito
+- se non deve essere inserito
+
+
+L = 0 -> scelte possibili
+	PARZIALE = {e1}
+		L = 1
+			PARZIALE = {e1,e2}
+			
